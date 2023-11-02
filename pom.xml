@@ -14,21 +14,21 @@
     </properties>
 
     <dependencies>
-        <!-- Selenium Java -->
+        
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
 
-        <!-- Selenium Firefox Driver -->
+        
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
             <version>3.141.59</version>
         </dependency>
 
-        <!-- JUnit -->
+        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
