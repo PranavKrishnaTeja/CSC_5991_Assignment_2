@@ -26,23 +26,19 @@ public class WayneUniTest {
     public void setUp() {
         driver.get("https://bulletins.wayne.edu/courses/");
 
-        // Find the CSC - Computer Science link
+        
         WebElement compSciLink = driver.findElement(By.linkText("CSC - Computer Science"));
 
-        // Scroll to the CSC - Computer Science link smoothly and highlight it
+        
         highlightElement(compSciLink, "yellow", 5000);
     }
 
     @Test
     public void testCSC5991CourseListing() {
-        // Click on the CSC - Computer Science link
+        
         WebElement compSciLink = driver.findElement(By.linkText("CSC - Computer Science"));
-        compSciLink.click();
-
-        // Wait until the navigation is completed
+        compSciLink.click();        
         new WebDriverWait(driver, 10).until(ExpectedConditions.urlToBe("https://bulletins.wayne.edu/courses/csc/"));
-
-        // Check if "CSC 5991" is present in the page source
         boolean isCourseFound = driver.getPageSource().contains("CSC 5991");
 
         if (isCourseFound) {
@@ -53,20 +49,18 @@ public class WayneUniTest {
             System.out.println("CSC 5991 not found.");
         }
 
-        // Assert that the course was found
         Assert.assertTrue("CSC 5991 should be present on the page", isCourseFound);
     }
 
     private void highlightElement(WebElement element, String color, int waitTime) {
-        // Scroll to the element smoothly and center it
+
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", element);
 
-        // Highlight the element with the specified color
+        
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].style.backgroundColor = '" + color + "';", element);
 
-        // Wait for the specified time
         try {
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {
